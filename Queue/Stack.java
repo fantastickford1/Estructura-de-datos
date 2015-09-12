@@ -1,9 +1,9 @@
-public class PilaChar{
+public class Stack{
 
   private Object pila[];
   private int tope;
 
-  public PilaChar(int capacidad){
+  public Stack(int capacidad){
     pila = new Object[capacidad];
     tope = -1;
   }
@@ -12,7 +12,7 @@ public class PilaChar{
     return tope == -1;
   }
 
-  public void push(char i){
+  public void push(Object i){
     if (tope+1 < pila.length)
       pila[++tope] = i;
   }
@@ -23,7 +23,8 @@ public class PilaChar{
     return pila[tope--];
   }
 
-  public String toString(){
-    return new String(pila,0,tope+1);
+  public Object sneak() throws Exception{
+    if(isEmpty())throw new Exception("Stack is empty");
+    return this.pila[tope];
   }
 }
