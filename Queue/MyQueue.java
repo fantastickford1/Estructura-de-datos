@@ -6,16 +6,13 @@
 
 public class MyQueue {
 
-  public static final int DEFAULT_SIZE=5;
+  public int SIZE;
   private Object data[];
   private int index;
 
-  public MyQueue(){
-    data=new Object[DEFAULT_SIZE];
-  }
-
   public MyQueue(int s){
-    data=new Object[s];
+    this.SIZE = s;
+    data = new Object[s];
   }
 
   public boolean isEmpty(){
@@ -23,7 +20,7 @@ public class MyQueue {
   }
 
   public void enqueue(Object obj) throws Exception{
-    if(index==DEFAULT_SIZE-1){
+    if(index==SIZE-1){
       throw new Exception("Queue is full. Dequeue some objects");
     }
     this.data[index]=obj;
@@ -46,7 +43,7 @@ public class MyQueue {
   }
 
   public static void main(String[] args) throws Exception {
-    MyQueue queue = new MyQueue();
+    MyQueue queue = new MyQueue(5);
     queue.enqueue("a");
     System.out.println("dequeue:"+queue.dequeue());
     queue.enqueue("b");
