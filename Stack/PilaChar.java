@@ -1,10 +1,10 @@
 public class PilaChar{
 
-  private Object pila[];
+  private char pila[];
   private int tope;
 
   public PilaChar(int capacidad){
-    pila = new Object[capacidad];
+    pila = new char[capacidad];
     tope = -1;
   }
 
@@ -12,19 +12,18 @@ public class PilaChar{
     return tope == -1;
   }
 
-  public void push(Object i){
+  public void push(char i){
     if (tope+1 < pila.length)
       pila[++tope] = i;
   }
 
-  public Object pop(){
+  public char pop(){
     if(isEmpty())
       return 0;
     return pila[tope--];
   }
 
-  public Object[] sneak(){
-    return pila;
+  public String toString(){
+    return new String(pila,0,tope+1);
   }
-
 }
