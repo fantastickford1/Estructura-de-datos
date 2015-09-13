@@ -4,13 +4,15 @@ public class Main{
   public static void main(String[] args) {
 
     int size;
-    String ph;
+    String ph = "";
     String phbroke[];
 
     Scanner keyboard = new Scanner(System.in);
-    ph = keyboard.nextLine();
-    phbroke[] = ph.split(" ");
-    size=phbroke.length;
+    while (!ph.equals("FIN")) {
+      ph = keyboard.next();
+    }
+
+    System.out.println(ph);
 
 
 
