@@ -23,8 +23,4 @@ public class Stack{
     return pila[tope--];
   }
 
-  public Object sneak() throws Exception{
-    if(isEmpty())throw new Exception("Stack is empty");
-    return this.pila[tope];
-  }
 }
