@@ -16,7 +16,7 @@ public class TheMain{
           sorting.sortAll(ph);
       }
     }
-    System.out.println("String ordenados alfabeticamente:");
+    System.out.println("Strings ordenados alfabeticamente:");
     sorting.getSorting();
 
 

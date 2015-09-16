@@ -4,7 +4,7 @@ public class QueueSorting{
   private String temp;
   private String temp2;
   private String phr;
-  int sd;
+  private int sd;
   private MyQueue order;
   private MyQueue mayor;
 
