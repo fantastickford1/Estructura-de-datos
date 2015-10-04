@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="320" prefWidth="400" xmlns:fx="http://javafx.com/fxml/1" fx:controller="practicajavafx.FXMLDocumentController">
+    <children>
+        <MenuBar fx:id="Menu"/>
+        <Pane fx:id="Contenedor" layoutX="10" layoutY="30" minHeight="280" minWidth="300" >
+            <children>
+                <TextArea fx:id="txtArea" layoutX="10" layoutY="10" maxWidth="170" maxHeight="280"  />
+                <Slider fx:id="Slide" layoutX="10" layoutY="220" />
+                <ProgressBar fx:id="Bar" layoutX="10" layoutY="240" />
+                <Button fx:id="btnDisable" text="Disable" layoutX="170" layoutY="240" />      
+            </children>
+        </Pane>
+        <Pane fx:id="ContenedorBtn" layoutX="250" layoutY="30" minHeight="100" minWidth="100"     >
+            <children>
+                <Button fx:id="btnDisappear" onAction="#OnDisappear" layoutX="0" layoutY="50" minHeight="10" minWidth="100" text="Disappear"   />
+                <Button fx:id="btnCenterApp" onAction="#CentrarApp"  layoutX="0" layoutY="100" minHeight="10" minWidth="100" text="CenterApp"/>      
+            </children>    
+        </Pane>
+        <Button fx:id="btnClose" onAction="#Exit"  layoutX="300" layoutY="250" text="Close"/>         
+    </children>
+</AnchorPane>
