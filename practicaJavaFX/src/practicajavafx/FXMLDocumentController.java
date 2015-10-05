@@ -13,6 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -29,9 +32,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane Contenedor;
     @FXML
-    private Slide slide;
+    private Pane ContenedorAbout;
+    @FXML
+    private Slider slider;
     @FXML
     private ProgressBar Bar;
+    @FXML
+    private TextArea txtArea;
+    
+    boolean editable = true;
+    boolean visible = false;
+    
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -65,10 +76,44 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void OnDisable(ActionEvent event){
+        if(editable == true){
+            editable = false;
+            txtArea.setEditable(editable);
+        }else{
+            editable = true;
+            txtArea.setEditable(editable);
+        }
+    }
+    
+    @FXML
+    private void keyInput(KeyEvent event){
+        slider.setMin(0);
+        slider.setMax(50);
+        slider.setValue(txtArea.getText().length());
+        for(int i = 0; i < txtArea.getText().length(); i++){
+            Bar.setProgress(0.02*i);
+        }
+        if (txtArea.getText().length() > 51) {
+            event.consume();
+        }
         
     }
     
+    @FXML
+    
+    private void onCredits(ActionEvent event){
+       if(visible == false){
+          ContenedorAbout.setVisible(true);
+          this.visible = true;
+       }else{
+           ContenedorAbout.setVisible(false);
+           this.visible = false;
+       }
+    }   
+    
+        
     @Override
+    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
