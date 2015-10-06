@@ -1,5 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import static org.junit.matchers.JUnitMatchers.*;
 
 public class SimpleListTest{
 
@@ -9,7 +10,7 @@ public class SimpleListTest{
     ListaSimple list = new ListaSimple();
     list.add("Hola");
     list.add("Bien");
-    System.out.println("::::" + list.get(1).getData());
+    assertEquals("failure - Strings are not equals","Hola",list.get(1).getData());
   }
 
   @Test
@@ -22,7 +23,7 @@ public class SimpleListTest{
     lists.addOrdenado("Diana");
     lists.addOrdenado("Carlos");
     lists.addOrdenado("Zenteno");
-    System.out.println("::::::" + lists.toString());
+    assertEquals("failure - array are not equals","Diana",lists.get(2).getData());
   }
 
   @Test
@@ -34,7 +35,7 @@ public class SimpleListTest{
     list.add("Diana");
     list.add("Carlos");
     list.add("Karen");
-    System.out.println("::::::" + list.get(3).getData() );
+    assertEquals("failure - strings are not equal","Diana",list.get(3).getData());
   }
 
   @Test
@@ -47,7 +48,7 @@ public class SimpleListTest{
     list.add("Nacho");
     list.add("Karen");
     list.add("Susi");
-    System.out.println("::::::" + list.toString());
+    assertEquals("failure - strings are not equal",list.toString(),"[Diana][Carlos][Tere][Nacho][Karen][Susi]");
   }
 
 
