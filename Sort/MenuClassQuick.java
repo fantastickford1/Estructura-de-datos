@@ -1,14 +1,16 @@
 public class MenuClassQuick{
   public static void main(String[] args) {
     Quicksort quick = new Quicksort();
+    AnalizaFile readed = new AnalizaFile("milDatosReverse.txt");
+    int[] all = readed.getAllLinesInt(",");
 
-    int[] array = {3,4,8,6,7,2,9,1,5,0};
+    quick.quickSort(all,0,999);
 
-    quick.quickSort(array,0,9);
-
-    for (int i = 0; i < array.length ; i++ ) {
-      System.out.print("["+array[i]+"]");
+    for (int i = 0; i < all.length ; i++ ) {
+      System.out.print("["+all[i]+"]");
     }
+    System.out.println();
+    System.out.println("The main process was repeated: " + quick.count);
 
   }
 }

@@ -1,20 +1,21 @@
-class ListaSimple {
+class ListaSimple <T> {
     // Referencia  a el node raiz o la cabeza de la lista.
-    private Node head;
+    private Node<T> head;
     private int listCount;
+    //private T data1;
 
     // constructor
     public ListaSimple() {
         // Se asigna la cabeza a un nodo nulo y el contador a 0
-        head = new Node(null);
+        head = new Node<>(null);
         listCount = 0;
     }
 
-    public void add(Object data)
+    public void add(T data)
     // Agrega el nodo al final de la lista.
     {
-        Node Temp = new Node(data);
-        Node Current = head;
+        Node<T> Temp = new Node<>(data);
+        Node<T> Current = head;
         // Se tiene que posicionar en la cabeza para poder recorrer la lista y llegar al fin
         while (Current.getNext() != null) {
             Current = Current.getNext();
@@ -24,13 +25,13 @@ class ListaSimple {
         listCount++;// incrementamos el contador de nodos
     }
 
-     public Node get(int index)
+     public Node<T> get(int index)
     // Regresa el nodo en la posición indicada por index
     {
         if (index <= 0)
             return null;
 
-        Node Current = head.getNext();
+        Node<T> Current = head.getNext();
         for (int i = 1; i < index; i++) {
             if (Current.getNext() == null)
                 return null;
@@ -45,7 +46,7 @@ class ListaSimple {
         //
         if (index < 1 || index > size())
             return false;
-        Node Current = head;
+        Node<T> Current = head;
         for (int i = 1; i < index; i++) {
             if (Current.getNext() == null)
                 return false;
@@ -56,7 +57,7 @@ class ListaSimple {
         return true;
     }
 
-    public boolean addPos(int index, Object data)
+    public boolean addPos(int index, T data)
     // agrega el elemento en la posición indicada
     {
         //
@@ -66,31 +67,30 @@ class ListaSimple {
             add(data);
             return true;
         }
-        Node Current = head;
+        Node<T> Current = head;
         int a=index+1;
         for (int i = 1; i < index; i++) {
              Current = Current.getNext();
         }
-        Node Temp = new Node(data,Current.getNext());
+        Node<T> Temp = new Node<>(data,Current.getNext());
         Current.setNext(Temp);
         listCount++; // aumenta  el contador de nodos
         return true;
     }
 
 
-public boolean addOrdenado(Object data)
+/*public boolean addOrdenado(T data)
     // agrega el elemento en la posición indicada
     {
-        Node Current = head;
+        Node<T> Current = head;
         int a=1;
-        String data1 =  (String) data;
-        while(Current.getNext()!=null &&
-               data1.compareTo((String) Current.getNext().getData()) > 0) {
+        T data1 = data;
+        while(Current.getNext()!=null && (String)data1.compareTo((String)Current.getNext().getData()) > 0) {
              Current = Current.getNext();
             a++;
         }
         return addPos(a,data1);
-    }
+    }*/
 
 
     public int size()
@@ -100,7 +100,7 @@ public boolean addOrdenado(Object data)
     }
 
     public String toString() {
-        Node Current = head.getNext();
+        Node<T> Current = head.getNext();
         String output = "";
         while (Current != null) {
             output += "[" + Current.getData().toString() + "]";
@@ -109,35 +109,44 @@ public boolean addOrdenado(Object data)
         return output;
     }
 
+    /*private int compareTo(T object){
+      if(this.data1 == object){
+        return 0;
+      }else if((String)this.data1 > (String)object){
+        return 1;
+      }else
+        return -1;
+    }*/
+
     //>>>>>>>>>>>>>>>NODE<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    public class Node {
+    public class Node <T> {
         //Referencia al siguiente elemento o a NULL si es el ultimo
-        Node next;
-        Object data;
+        Node<T> next;
+        T data;
         // Node constructor
-        public Node(Object dataValue) {
+        public Node(T dataValue) {
             next = null;
             data = dataValue;
         }
         // Constructor que incluye el siguiente nodo
-        public Node(Object dataValue, Node nextValue) {
+        public Node(T dataValue, Node<T> nextValue) {
             next = nextValue;
             data = dataValue;
         }
 
-        public Object getData() {
+        public T getData() {
             return data;
         }
 
-        public void setData(Object dataValue) {
+        public void setData(T dataValue) {
             data = dataValue;
         }
 
-        public Node getNext() {
+        public Node<T> getNext() {
             return next;
         }
 
-        public void setNext(Node nextValue) {
+        public void setNext(Node<T> nextValue) {
             next = nextValue;
         }
     }

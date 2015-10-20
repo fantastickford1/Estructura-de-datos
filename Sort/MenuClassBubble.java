@@ -1,15 +1,18 @@
 public class MenuClassBubble{
 
   public static void main(String[] args) {
+
     BubbleSort bubble = new BubbleSort();
-    int[] array = {3,4,8,6,7,2,9,1,5,0};
+    AnalizaFile readed = new AnalizaFile("mildatos.txt");
+    int[] all = readed.getAllLinesInt(", ");
 
-    bubble.bubbleSort(array);
+    bubble.bubbleSort(all);
 
-    for (int i = 0; i < array.length ; i++ ) {
-      System.out.print("["+array[i]+"]");
+    for (int i = 0; i < all.length ; i++ ) {
+      System.out.print("["+all[i]+"]");
     }
-
+    System.out.println();
+    System.out.println("The main process was repeated: " + bubble.contador);
   }
 
 
