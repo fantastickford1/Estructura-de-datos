@@ -1,5 +1,7 @@
 public class Quicksort{
 
+  int count = 0;
+
   public void quickSort(int arr[], int left, int right) {
     int index = partition(arr, left, right);
     if (left < index - 1)
@@ -13,6 +15,7 @@ public class Quicksort{
     int tmp;
     int pivot = arr[(left + right) / 2];
     while (i <= j) {
+      count++;
       while (arr[i] < pivot)
         i++;
       while (arr[j] > pivot)
