@@ -1,8 +1,15 @@
-package esd.utils;
 // java org.junit.runner.JUnitCore [test class name]
+
+/*
+UNIVERSIDAD POLITECNICA DE CHIAPAS
+
+@author DIANA ALONDRA TOLEDO MAZA  143355
+@author CARLOS ALEJANDRO ZENTENO ROBLES 143382
+*/
 
 import static org.junit.Assert.*;
 import java.util.*;
+import esd.utils.*;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
 
@@ -40,7 +47,7 @@ public class TestSorts {
 		System.out.println("");
 		System.out.println("Testing sList <> iList");
 		assertThat(sList, is(not(iList)));
-		System.out.println("Testing sList = selectionSort(iList)");
+		System.out.println("Testing sList = insertionSort(iList)");
 		assertThat(sList, is(Sorts.insertionSort(iList)));
 
     }
@@ -68,8 +75,8 @@ public class TestSorts {
 		assertThat(sList, is(Sorts.heapSort(iList)));
 
     }
-	
-	
+
+
 	@Test
 	    public void testMergeSort() {
 		ArrayList<Integer> sList = new ArrayList<Integer>(iList);
@@ -81,5 +88,5 @@ public class TestSorts {
 		assertThat(sList, is(Sorts.mergeSort(iList)));
 
     }
-	
+
 }

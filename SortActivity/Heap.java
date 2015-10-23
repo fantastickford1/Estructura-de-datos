@@ -4,18 +4,15 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Heap<T extends Comparable<T>> {
-    
-    private int counter = 0;	
+
     private ArrayList<T> items;
 
     public Heap() {
         items = new ArrayList<T>();
     }
-    
-    public int getCounter(){
-        return counter;
-    }
-    
+
+
+
     public void insert(T item) {
         items.add(item);
         siftUp();
@@ -28,19 +25,19 @@ public class Heap<T extends Comparable<T>> {
             int p = (k-1)/2;
             T item = items.get(k);
             T parent = items.get(p);
-            
+
             if (item.compareTo(parent) > 0) {
-                
+
                 items.set(k, parent);
                 items.set(p, item);
                 k = p;
-            } 
+            }
             else{
                 break;
             }
         }
     }
-    
+
     private void siftDown() {
         int k = 0;
         int l = 2*k+1;
@@ -48,12 +45,11 @@ public class Heap<T extends Comparable<T>> {
             int max=l, r=l+1;
             if (r < items.size()) { // there is a right child
                 if (items.get(r).compareTo(items.get(l)) > 0) {
-                    
+
                     max++;
                 }
             }
             if (items.get(k).compareTo(items.get(max)) < 0) {
-                counter++;
                 T temp = items.get(k);
                 items.set(k, items.get(max));
                 items.set(max, temp);

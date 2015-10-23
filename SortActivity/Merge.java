@@ -7,18 +7,19 @@ try to fix it
 */
 	public ArrayList<T> merge_sort(ArrayList<T> arreglo){
 		//Si lista esta vacía o de tamaño 1 ya está ordenada. Se devuelve lista tal cual
+		System.out.println(arreglo.size());
 		if(arreglo.size() <= 1){
 			return arreglo;
 		}else{
 			int medio = arreglo.size()/2;
-			ArrayList<T> tempA = new ArrayList<>(medio);
-			ArrayList<T> tempB = new ArrayList<>(arreglo.size()-medio);
-			int index=0;
+			ArrayList<T> tempA = new ArrayList<T>(medio);
+			ArrayList<T> tempB = new ArrayList<T>(arreglo.size()-medio);
 			for (int i=0;i<arreglo.size() ; i++ ) {
+				System.out.println(i);
 				if(i<medio){
-					tempA.set(i,arreglo.get(i));
+					tempA.add(arreglo.get(i));
 				}else{
-					tempB.set(index++, arreglo.get(i));
+					tempB.add(arreglo.get(i));
 				}
 			}
 			ArrayList<T> izq = merge_sort(tempA);
@@ -33,18 +34,17 @@ try to fix it
 		int index =0;
 		ArrayList<T> resultado = new ArrayList<T>(izq.size()+der.size());
 		while(i<izq.size() && j<der.size()){
-			if(izq.get(i).compareTo(der.get(j)) == -1){
-				resultado.set(index++, izq.get(i++));
-				//i++;
+			if(izq.get(i).compareTo(der.get(j)) < 0){
+				resultado.add(izq.get(i++));
 			}else{
-				resultado.set(index++, der.get(j++));
+				resultado.add(der.get(j++));
 			}
 		}
 		while( i<izq.size() ){    // Copia el resto de la mitad izq
-            resultado.set(index++, izq.get(i++));
+            resultado.add(izq.get(i++));
         }
         while( j<der.size()){ //Copia el resto de la mitad der
-            resultado.set(index++, der.get(j++));
+            resultado.add(der.get(j++));
         }
         return resultado;
 
