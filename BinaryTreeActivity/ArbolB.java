@@ -1,10 +1,13 @@
-public class ArbolB {
-    class Nodo
+import java.io.Serializable;
+
+public class ArbolB implements Serializable{
+    class Nodo implements Serializable
       {
         Customers info;
         Nodo izq, der;
       }
       Nodo raiz;
+      private static final long serialVersionUID = 1;
 
       public ArbolB()
       {
@@ -88,6 +91,10 @@ public class ArbolB {
       {
           postOrder (raiz);
           System.out.println();
+      }
+
+      public void delete(){
+        raiz=null;
       }
 /*
       public static void main (String [] ar)

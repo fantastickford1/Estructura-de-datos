@@ -1,5 +1,8 @@
-public class Customers implements Comparable<Customers> {
+import java.io.Serializable;
 
+public class Customers implements Comparable<Customers>,Serializable {
+
+  private static final long serialVersionUID = 1;
   public String CustomerID;
   public String CompanyName;
   public String ContactName;
@@ -58,7 +61,7 @@ public class Customers implements Comparable<Customers> {
 
   public String toString()
   {
-    String output = CustomerID;
+    String output = "["+CustomerID+"],["+CompanyName+"],["+ContactName+"],["+ContactTitle+"],["+Address+"],["+City+"],["+Region+"],["+PostalCode+"],["+Country+"],["+Phone+"],["+Fax+"]";
 
     return output;
   }
@@ -67,12 +70,8 @@ public class Customers implements Comparable<Customers> {
   @Override
   public int compareTo(Customers o)
   {
-      if(this.CompanyName.compareTo(o.CompanyName) > 0)
-        return 1;
-      if(this.CompanyName.compareTo(o.CompanyName) < 0)
-        return -1;
-      if(this.CompanyName.compareTo(o.CompanyName) == 0)
-        return 0;
+    int result = this.CompanyName.compareTo(o.CompanyName);
+    return result;
   }
 
 }

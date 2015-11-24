@@ -1,14 +1,12 @@
-package newpracticea;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet; 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
  * <p>Clase que sirve para realizar las tareas comunes para interactuar con una Base de Datos en MySQL.
- * Realiza las tareas de insertar, borrar y actualizar registros, así como de llevar a cabo consultas en 
+ * Realiza las tareas de insertar, borrar y actualizar registros, así como de llevar a cabo consultas en
  * alguna tabla especificada.</p>
  * <p>Un ejemplo de las sentencias SQL esperadas por los métodos:</p>
  * <table border="1">
@@ -24,10 +22,10 @@ public class Conexion {
     //Atributos de conexión
     public static final String usrBD = "root";
     public static final String passBD = "root";
-    
+
     private Connection conexion;
     private Statement st;
-    
+
     /**
      * <p>Constructor para crear la conexión a la Base de Datos a través de {@code JBDC}.
      * Los datos que requiere son el usuario, la contraseña y la base de datos a utilizar.</p>
@@ -48,7 +46,7 @@ public class Conexion {
             throw new SQLException("Error en SQL. Mensaje de error: " + ex.getMessage());
         }
     }
-    
+
     /**
      * Recibe alguna sentencia para insertar y la ejecuta
      * @param instruccion La sentencia SQL
@@ -68,7 +66,7 @@ public class Conexion {
         }
         return true;
     }
-    
+
     /**
      * Recibe alguna sentencia para borrar y la ejecuta
      * @param instruccion La sentencia SQL
@@ -77,7 +75,7 @@ public class Conexion {
     public boolean borrar(String instruccion) {
         return insertar(instruccion);
     }
-    
+
     /**
      * Recibe alguna sentencia para actualizar y la ejecuta
      * @param instruccion La sentencia SQL
@@ -97,7 +95,7 @@ public class Conexion {
         }
         return true;
     }
-    
+
     /**
      * Recibe alguna sentencia para hacer una selección y la ejecuta
      * @param instruccion La sentencia SQL
@@ -122,7 +120,7 @@ public class Conexion {
             return null;
         }
     }
-    
+
     /**
      * Busca la cantidad de registros que hay en la tabla especificada.
      * Devuelve -1 en caso de haber algún error
@@ -142,7 +140,7 @@ public class Conexion {
             return -1;
         }
     }
-    
+
     /**
      * Cerrar la conexión con la BD.
      * Cuando ya no se necesite usar la conexión a la BD, es recomendable cerrarla.
