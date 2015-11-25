@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="125.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.doYouFXMLController">
+   <children>
+      <Label layoutX="172.0" layoutY="14.0" text="Well played" />
+      <Label layoutX="131.0" layoutY="46.0" text="Do you want to play again?" />
+      <Button layoutX="146.0" layoutY="73.0" mnemonicParsing="false" onAction="#openInicial" text="Maybe" />
+      <Button layoutX="208.0" layoutY="73.0" mnemonicParsing="false" onAction="#close" text="I don't" />
+   </children>
+</AnchorPane>
