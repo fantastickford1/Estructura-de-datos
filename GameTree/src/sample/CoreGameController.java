@@ -40,6 +40,7 @@ public class CoreGameController implements Initializable {
         tree = new TreeGame();
         if (recover){
             this.tree = recoverTree();
+            tree.setRoot(this.tree.getRoot());
             dataQuestion = tree.root.data;
             question.setText(dataQuestion);
 

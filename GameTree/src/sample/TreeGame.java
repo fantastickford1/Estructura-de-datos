@@ -26,6 +26,16 @@ public class TreeGame implements Serializable{
         temp = recover;
     }
 
+    public void setRoot(Node root){
+        this.root = root;
+        recover = root;
+        temp = recover;
+    }
+
+    public Node getRoot(){
+        return this.root;
+    }
+
     public String yesObtion(){
         if (recover.right != null){
             temp = recover;
