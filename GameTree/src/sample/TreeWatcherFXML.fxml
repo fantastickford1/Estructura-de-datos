@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TreeWatcherController">
+   <children>
+      <ScrollPane layoutX="221.0" prefHeight="529.0" prefWidth="591.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="4516.0" prefWidth="8356.0">
+               <children>
+                  <Group fx:id="group" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button fx:id="plus" layoutX="76.0" layoutY="479.0" mnemonicParsing="false" onAction="#zoomPlus" prefHeight="25.0" prefWidth="25.0" text="+" />
+      <Button fx:id="drecress" layoutX="104.0" layoutY="479.0" mnemonicParsing="false" onAction="#zoomLess" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <Label layoutX="88.0" layoutY="450.0" text="Zoom" />
+      <Label layoutX="56.0" layoutY="58.0" text="Numero de nodos" />
+      <Label fx:id="noNodosLabel" layoutX="91.0" layoutY="89.0" text="Label" />
+      <Label layoutX="54.0" layoutY="121.0" text="Numero de niveles" />
+      <Label fx:id="lvlLabel" layoutX="91.0" layoutY="156.0" text="Label" />
+   </children>
+</AnchorPane>

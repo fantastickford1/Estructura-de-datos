@@ -3,8 +3,10 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,13 +18,18 @@ import java.util.ResourceBundle;
  */
 public class doYouFXMLController implements Initializable {
 
-
+    @FXML private Button treeButton;
     private Stage primaryStage;
     private Scene scene;
+    private TreeGame TREE;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Image treeImage = new Image(getClass().getResourceAsStream("/img/tree-icon-green.png"));
+        ImageView tree = new ImageView(treeImage);
+        tree.setFitHeight(30);
+        tree.setFitWidth(30);
+        treeButton.setGraphic(tree);
     }
 
     @FXML private void openInicial(){
@@ -45,8 +52,31 @@ public class doYouFXMLController implements Initializable {
         this.primaryStage.close();
     }
 
+    @FXML private void openTreeWatchWindow(){
+        Stage stage = new Stage();
+        FXMLLoader myloader = new FXMLLoader(
+                getClass().getResource("/sample/TreeWatcherFXML.fxml")
+        );
+        Parent root = null;
+        try {
+            root = (Parent) myloader.load();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        TreeWatcherController myController = myloader.getController();
+        Scene TreeWatcherScene = new Scene(root);
+        myController.setScene(TreeWatcherScene);
+        myController.setTree(this.TREE);
+        stage.setScene(TreeWatcherScene);
+        stage.show();
+    }
+
     @FXML private void close(){
         System.exit(0);
+    }
+
+    public void setTreeAux(TreeGame tree){
+        this.TREE = tree;
     }
 
     public void setScene(Scene doYouScene) {

@@ -9,7 +9,7 @@ public class Node implements Serializable {
 
     public Node right,left;
     public String data;
-    private static final long serialVersionUID = 1;
+    //private static final long serialVersionUID = 1;
 
     public Node(){
         this.data = null;

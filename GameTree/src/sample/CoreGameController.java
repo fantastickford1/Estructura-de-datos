@@ -29,7 +29,6 @@ public class CoreGameController implements Initializable {
     private String newQuestion;
     private Scene scene;
     private Stage primaryStage;
-    private String lastData;
     private boolean yesOrno;
 
 
@@ -41,12 +40,12 @@ public class CoreGameController implements Initializable {
         if (recover){
             this.tree = recoverTree();
             tree.setRoot(this.tree.getRoot());
-            dataQuestion = tree.root.data;
+            dataQuestion = tree.getRoot().data;
             question.setText(dataQuestion);
 
         }else {
-            tree.setRoot("Es privado?","Es carro","Es combi");
-            dataQuestion = tree.root.data;
+            tree.setRoot("Es privado?","carro","combi");
+            dataQuestion = tree.getRoot().data;
             question.setText(dataQuestion);
         }
 
@@ -56,7 +55,8 @@ public class CoreGameController implements Initializable {
     private void yesOptionPath(){
        String data = tree.yesObtion();
         if (data != null){
-            question.setText("Es un/una " + data + "?");
+            this.selectedData = data;
+            question.setText("" + selectedData + "?");
             yesOrno = true;
         }else{
             question.setText("I made it! It's " + data + "!");
@@ -69,7 +69,7 @@ public class CoreGameController implements Initializable {
         String data = tree.noOption();
         if (data != null){
             this.selectedData = data;
-            question.setText("Es un/una" + selectedData + "?");
+            question.setText("" + selectedData + "?");
             yesOrno = false;
         }else {
             openAnswerWindow();
@@ -152,6 +152,7 @@ public class CoreGameController implements Initializable {
         Scene doYouScene = new Scene(root);
         myController.setScene(doYouScene);
         myController.setStage(stage);
+        myController.setTreeAux(this.tree);
         stage.setScene(doYouScene);
         stage.showAndWait();
         this.primaryStage.close();

@@ -7,10 +7,13 @@ import java.io.Serializable;
  */
 public class TreeGame implements Serializable{
 
-    Node root;
-    Node temp;
-    Node recover;
-    private static final long serialVersionUID = 1;
+    private Node root;
+    private Node temp;
+    private Node recover;
+    //private static final long serialVersionUID = 1;
+    private int count;
+    private int height;
+
 
     TreeGame(){
         root = null;
@@ -59,11 +62,7 @@ public class TreeGame implements Serializable{
     public void newCuestionNoOption(String newQuestion, String newAnswer) {
         Node questionNode = new Node(newQuestion);
         Node answerNode = new Node(newAnswer);
-        if (temp != root){
-            temp.right = questionNode;
-        }else{
-            temp.left = questionNode;
-        }
+        temp.left = questionNode;
         questionNode.left = recover;
         temp = questionNode;
         temp.right = answerNode;
@@ -72,13 +71,40 @@ public class TreeGame implements Serializable{
     public void newCuestionYesOption(String newQuestion, String newAnswer) {
         Node questionNode = new Node(newQuestion);
         Node answerNode = new Node(newAnswer);
-        if (temp != root){
-            temp.left = questionNode;
-        }else{
-            temp.right = questionNode;
-        }
+        temp.right = questionNode;
         questionNode.left = recover;
         temp = questionNode;
         temp.right = answerNode;
     }
+
+    public int getChildrens(){
+        this.count = 0;
+        countNodes(this.root);
+        return this.count;
+    }
+
+    private void countNodes(Node node){
+        if (node != null){
+            this.count++;
+            countNodes(node.left);
+            countNodes(node.right);
+        }
+    }
+
+    public int getHeight(){
+        this.height = 0;
+        calculateHeight(this.root,1);
+        return this.height;
+    }
+
+    private void calculateHeight(Node node, int lvl){
+        if (node != null){
+            calculateHeight(node.left, lvl+1);
+            if (lvl > this.height){
+                this.height = lvl;
+            }
+            calculateHeight(node.right, lvl+1);
+        }
+    }
+
 }
