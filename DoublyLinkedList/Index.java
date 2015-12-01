@@ -1,4 +1,4 @@
-public class Index<T>{
+public class Index<T> implements Comparable<Index>{
 
   private char index;
   private DoublyLinkedList<T> lista;
@@ -27,6 +27,27 @@ public class Index<T>{
 
   public DoublyLinkedList<T> getList(){
     return lista;
+  }
+  
+  @Override
+  public String toString(){
+    String datos = "";
+    for(int i = 1; i <= lista.size(); i++){
+      Kryta person = (Kryta) lista.get(i);
+      datos += "{" + person.getName() + "}";
+    }
+    return datos;
+  }
+  
+  @Override
+  public int compareTo(Index o){
+    if(this.index > o.getIndex()){
+      return 1;
+    }
+    if(this.index < o.getIndex()){
+      return -1;
+    }
+    return 0;
   }
 
 }

@@ -6,6 +6,7 @@ class Test{
     doublyList.addOrdenado(0);
     doublyList.addOrdenado(8);
     doublyList.addOrdenado(1);
+    System.out.println(doublyList.size());
     System.out.println(doublyList.iterateForward());
     System.out.println(doublyList.iterateBackward());
 

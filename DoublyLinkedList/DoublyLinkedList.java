@@ -31,7 +31,7 @@ public class DoublyLinkedList<T>{
     }
 
      public T get(int index)
-    // Regresa el nodo en la posición indicada por index
+    // Regresa el dato localizado en el nodo indicado
     {
         if (index <= 0)
             return null;

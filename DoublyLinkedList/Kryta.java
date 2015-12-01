@@ -2,18 +2,17 @@ public class Kryta implements Comparable<Kryta>{
 
   private String name;
   private String addres;
-  private Long phone;
-  private char index;
+  private long phone;
 
   public void setName(String name){
     this.name = name;
   }
 
-  public void setAddres(String addres){
+  public void setAddress(String addres){
     this.addres = addres;
   }
 
-  public void setPhone(Long phone){
+  public void setPhone(long phone){
     this.phone = phone;
   }
 
@@ -25,7 +24,7 @@ public class Kryta implements Comparable<Kryta>{
     return this.addres;
   }
 
-  public Long getPhone(){
+  public long getPhone(){
     return this.phone;
   }
 
