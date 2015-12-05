@@ -21,41 +21,40 @@ public class MainProcess{
 		System.out.println("2. List the directory");
 		System.out.println("3. Exit");
 		System.out.println();
-		String opcion = keyboard.nextLine();
+		String opcion = keyboard.next();
 		
 		switch(opcion){
-			case "1":{
+			case "1":
 				addFolk();
 				menu();
 				break;	
-			}
-			case "2":{
+			
+			case "2":
 				showAll();
 				menu();
 				break;
-			}
-			case "3":{
-				
+			
+			case "3":
 				break;	
-			}
-			default:{
+			
+			default:
 				menu();
 				break;
-			}
 		}
 	}
 	
 	private void addFolk(){
 		Kryta folk = new Kryta();
 		System.out.println("Ingrese el nombre:");
-		data = keyboard.nextLine();
+		data = keyboard.next();
 		folk.setName(data);
-		System.out.println("Ingrese la direccion");
-		data = keyboard.nextLine();
-		folk.setAddress(data);
 		System.out.println("Ingrese el numero de telefono");
 		long numero = keyboard.nextLong();
 		folk.setPhone(numero);
+		System.out.println("Ingrese la direccion");
+		data = keyboard.next();
+		folk.setAddress(data);
+		
 		char index = folk.getIndex();
 		
 		if(linkedList.isEmpty()){
@@ -87,20 +86,19 @@ public class MainProcess{
 		System.out.println("1. Acendente");
 		System.out.println("2. Decendente");
 		System.out.println();
-		String opc = keyboard.nextLine();
+		String opc = keyboard.next();
 		switch(opc){
-			case "1" :{
+			case "1" :
 				linkedList.iterateForward();
 				break;
-			}
-			case "2" :{
+			
+			case "2" :
 				linkedList.iterateBackward();
 				break;
-			}
-			default:{
+			
+			default:
 				showAll();
 				break;
-			}
 		}
 	}
 	
@@ -109,6 +107,4 @@ public class MainProcess{
 		mainP.menu();
     
   	}
-	
-	
 }

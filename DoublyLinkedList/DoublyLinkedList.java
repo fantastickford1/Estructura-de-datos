@@ -93,23 +93,6 @@ public class DoublyLinkedList<T>{
       Current.setNext(Temp);
       listCount++;
       return true;
-        //
-        /*if (index < 1 )
-            return false;
-        if (index > size()){
-            add(data);
-            return true;
-        }
-
-        Node<T> Current = head;
-        for (int i = 1; i < index; i++) {
-             Current = Current.getNext();
-        }
-        Node<T> Temp = new Node<>(data,Current.getNext(),Current);
-        Current.getNext().setLast(Temp);
-        Current.setNext(Temp);
-        listCount++; // aumenta  el contador de nodos
-        return true;*/
     }
 
     public <Object extends Comparable<Object>> boolean addOrdenado(T data)
@@ -136,26 +119,32 @@ public class DoublyLinkedList<T>{
       return listCount == 0;
     }
 
-    public String iterateForward()
+    public void iterateForward()
     {
         Node<T> Current = head.getNext();
         String output = "";
         while (Current != null) {
-            output += "[" + Current.getData().toString() + "]";
+            Index<Kryta> tempw = (Index) Current.getData();
+            System.out.println("---->>" + tempw.getIndex() + "<<----");
+            output = "[" + Current.getData().toString() + "]";
+            System.out.println(output);
+            System.out.println();
             Current = Current.getNext();
         }
-        return output;
     }
 
-    public String iterateBackward()
+    public void iterateBackward()
     {
         Node<T> Current = tail.getLast();
         String output = "";
         while (Current != null) {
-          output += "[" + Current.getData().toString() + "]";
+          Index<Kryta> tempw = (Index) Current.getData();
+          System.out.println("---->>" + tempw.getIndex() + "<<----");
+          output = "[" + Current.getData().toString() + "]";
+          System.out.println(output);
+          System.out.println();
           Current = Current.getLast();
         }
-        return output;
     }
 
 }

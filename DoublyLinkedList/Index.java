@@ -34,7 +34,7 @@ public class Index<T> implements Comparable<Index>{
     String datos = "";
     for(int i = 1; i <= lista.size(); i++){
       Kryta person = (Kryta) lista.get(i);
-      datos += "{" + person.getName() + "}";
+      datos += "{" + person.getName() + " - " + person.getAddres() + " - " + person.getPhone() + "}";
     }
     return datos;
   }
